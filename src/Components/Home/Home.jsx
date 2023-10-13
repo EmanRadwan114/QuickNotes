@@ -3,6 +3,7 @@ import Header from "./../Header/Header";
 import Note from "./../Note/Note";
 import { getUserNotes } from "../../Utilities/GetNotes";
 import { notesContext } from "../../Contexts/NotesContext";
+import { Helmet } from "react-helmet";
 
 export default function Home() {
   const { notes, setNotes, filterNotes, setFilterNotes } =
@@ -17,6 +18,13 @@ export default function Home() {
   }, []);
   return (
     <>
+      <Helmet>
+        <title>QuickNotes</title>
+        <meta
+          name="description"
+          content="QuickNotes allows you to jot down your quick thoughts"
+        />
+      </Helmet>
       <Header></Header>
       <div className="borderBtm main-text fw-bold pb-3 mb-4 space">
         <h1 className="h2">My Notes</h1>
