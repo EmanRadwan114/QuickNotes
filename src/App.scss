@@ -1,0 +1,153 @@
+@import url("https://fonts.googleapis.com/css2?family=Acme&display=swap");
+
+$primaryColor: rgb(211, 158, 197);
+$secondaryColor: rgba(211, 158, 197, 0.5);
+$grey: rgb(243, 240, 243);
+$darkPurble: rgb(112, 60, 100);
+$lightPurble: rgb(137, 98, 126);
+$boxShadow: 0 0 0 0.25rem rgba(211, 158, 197, 0.5);
+
+body {
+  font-family: "Acme", sans-serif !important;
+}
+
+.main-text {
+  color: $darkPurble !important;
+}
+.main-bg {
+  background-color: $primaryColor !important;
+}
+.primary-text {
+  color: $primaryColor !important;
+}
+
+.grey-bg {
+  background-color: $grey !important;
+}
+.sec-bg {
+  background-color: $secondaryColor !important;
+}
+.sec-text {
+  color: $secondaryColor !important;
+}
+
+.space {
+  margin-top: 70px !important;
+}
+
+.light-text {
+  color: $lightPurble !important;
+}
+
+.sm-text {
+  font-size: 10px !important;
+}
+
+.main-btn {
+  transition: background-color 500ms, color 500ms !important;
+  &:hover {
+    background-color: $darkPurble !important;
+    color: white !important;
+  }
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.card-shadow {
+  box-shadow: 0 5px 10px 2px rgba(112, 60, 100, 0.3) !important;
+}
+
+.secBtn {
+  transition: color 500ms;
+  &:hover {
+    @extend .light-text;
+  }
+}
+
+input.form-control,
+textarea {
+  border: 1px solid $secondaryColor !important;
+  &:focus {
+    box-shadow: $boxShadow inset !important;
+  }
+}
+
+button:where(.swal2-styled).swal2-cancel,
+button:where(.swal2-styled).swal2-confirm {
+  padding: 7px 40px;
+  min-width: 180px;
+}
+
+button:where(.swal2-styled).swal2-confirm {
+  background-color: $darkPurble !important;
+}
+
+.login {
+  img {
+    width: 85% !important;
+  }
+}
+
+.borderBtm {
+  border-bottom: 4px solid $darkPurble;
+}
+
+.fa-magnifying-glass {
+  transition: color 300ms;
+  &:hover {
+    color: $lightPurble !important;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: 992px) {
+    @content;
+  }
+}
+@mixin laptop {
+  @media (min-width: 992px) {
+    @content;
+  }
+}
+
+@include mobile {
+  .navbar-collapse {
+    background-color: $grey;
+  }
+  .nav-item {
+    width: 50% !important;
+  }
+}
+@include laptop() {
+  .mobMenu {
+    background-color: white;
+  }
+}
+
+// ?loader
+.lds-dual-ring {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid $darkPurble;
+  border-color: $darkPurble transparent $darkPurble transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
